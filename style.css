@@ -1,0 +1,296 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+:root {
+  --color-bright-blue: hsl(220, 98%, 61%);
+  --color-white: #ffffff;
+
+  --color-light-gray: hsl(0, 0%, 98%);
+  --color-light-grayish-blue: hsl(236, 33%, 92%);
+  --color-Light-grayish-blue: hsl(233, 11%, 84%);
+  --color-Dark-grayish-blue: hsl(236, 9%, 61%);
+  /* --color-veryDark-grayish-blue: hsl(235, 19%, 35%); */
+
+  --color-veryDark-Blue: hsl(235, 21%, 11%);
+  --color-veryDark-Desaturated-blue: hsl(235, 24%, 19%);
+  --color-Light-Grayish-blue: hsl(234, 39%, 85%);
+  --color-Light-Grayish-blue-hover: hsl(236, 33%, 92%);
+  --color-Dark-Grayish-blue: hsl(234, 11%, 52%);
+  --color-veryDark-Grayish-blue: hsl(233, 14%, 35%);
+  /* --color-veryDark-Grayish-blue: hsl(237, 14%, 26%); */
+}
+
+.dark {
+  --color-veryDark-Grayish-blue: var(--color-Light-Grayish-blue);
+  --color-white: #25273c;
+  --color-light-gray: #181824;
+  --color-veryDark-Blue: #ffffff;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  background-image: url(./images/bg-desktop-light.jpg);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: contain;
+  background-color: var(--color-light-gray);
+  width: 100%;
+  min-height: 100vh;
+}
+
+main {
+  min-height: inherit;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+@media (max-width: 37.5em) {
+  body {
+    background-image: url(./images/bg-mobile-light.jpg);
+  }
+  main {
+    min-height: 70vh;
+  }
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  min-width: 200px;
+  flex-direction: column;
+  padding: 2rem;
+  margin-top: -10rem;
+  min-height: 90vh;
+}
+
+.wrapper__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  margin-bottom: 4rem;
+}
+.heading--1 {
+  text-transform: uppercase;
+  font-size: 4rem;
+  letter-spacing: 1rem;
+  font-weight: 700;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-veryDark-Desaturated-blue);
+  font-size: 2.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.btn:hover {
+  transform: scale(1.1);
+}
+.active .mode-dark {
+  display: none;
+}
+.active .mode-light {
+  display: block;
+}
+.mode-dark {
+  display: block;
+}
+.mode-light {
+  display: none;
+}
+.todo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  background-color: var(--color-white);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+
+  margin-bottom: 3rem;
+}
+.form-control {
+  font-size: 2rem;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 1.5rem;
+  place-items: center;
+}
+input[type="checkbox"] {
+  /* position: relative; */
+  background-color: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--color-Light-Grayish-blue);
+  border-radius: 50%;
+  place-content: center;
+  /* transform: translateY(-0.075em); */
+  display: grid;
+  place-items: center;
+}
+input[type="checkbox"]::before {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  background-image: url(images/icon-check.svg),
+    linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+input[type="checkbox"]:checked::before {
+  opacity: 0.5;
+  transform: scale(1);
+}
+input[type="checkbox"]:checked + span {
+  opacity: 0.5;
+
+  text-decoration: line-through;
+}
+
+input[type="text"] {
+  background-color: inherit;
+  font-family: inherit;
+  font-size: 1.75rem;
+  color: var(--color-veryDark-Desaturated-blue);
+
+  padding: 1rem 2rem;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+}
+.add,
+.delete {
+  color: var(--color-veryDark-Blue);
+  margin-left: auto;
+}
+.delete {
+  font-size: 0;
+  display: none;
+}
+.delete-img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.item:hover .delete {
+  display: inline-block;
+}
+
+.todo__box {
+  width: 100%;
+  border-radius: 5px;
+  background-color: var(--color-white);
+  max-height: 300px;
+  overflow: auto;
+  -webkit-box-shadow: 3px 14px 85px -21px rgba(0, 0, 0, 0.78);
+  -moz-box-shadow: 3px 14px 85px -21px rgba(0, 0, 0, 0.78);
+  box-shadow: 3px 14px 85px -21px rgba(0, 0, 0, 0.78);
+}
+.todo__box::-webkit-scrollbar {
+  width: 1rem;
+}
+.todo__box::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1rem solid rgba(0, 0, 0, 0.2);
+  border-radius: 1.5rem;
+}
+.todo__box::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 0.5rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  border-bottom: 1px solid var(--color-Light-grayish-blue);
+  padding: 2rem 1.5rem;
+  color: var(--color-veryDark-Grayish-blue);
+}
+.desktop-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
+  color: var(--color-Dark-Grayish-blue);
+  background-color: var(--color-white);
+}
+.filter > a {
+  font-weight: 700;
+}
+.filter > a,
+.clear-items {
+  margin: 0 0.2rem;
+  text-decoration: none;
+  color: var(--color-Dark-Grayish-blue);
+  transition: all 0.3s;
+}
+.filter > a:hover,
+.clear-items:hover {
+  color: var(--color-veryDark-Grayish-blue);
+}
+
+.mobile-footer {
+  display: none;
+  background-color: var(--color-white);
+  width: 100%;
+  place-content: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  border-radius: 5px;
+  -webkit-box-shadow: 3px 49px 85px -38px rgba(0, 0, 0, 0.78);
+  -moz-box-shadow: 3px 49px 85px -38px rgba(0, 0, 0, 0.78);
+  box-shadow: 3px 49px 85px -38px rgba(0, 0, 0, 0.78);
+}
+.mobile-footer .filter > a {
+  margin: 0 0.5rem;
+}
+
+@media (max-width: 37.5em) {
+  .mobile-footer {
+    display: grid;
+  }
+  .desktop-footer .filter {
+    display: none;
+  }
+}

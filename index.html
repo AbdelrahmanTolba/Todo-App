@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+
+    <title>Frontend Mentor | Todo app</title>
+  </head>
+  <body>
+    <main>
+      <section class="wrapper">
+        <header class="wrapper__header">
+          <h1 class="heading--1">Todo</h1>
+          <button class="btn mode">
+            <img src="images/icon-moon.svg" alt="moon" class="mode-dark" />
+            <img src="images/icon-sun.svg" alt="sun" class="mode-light" />
+          </button>
+        </header>
+        <form class="todo">
+          <label for="checkbox">
+            <input type="checkbox" name="checkbox" />
+          </label>
+
+          <label for="text">
+            <input type="text" placeholder="Create new todo..." class="add-box" />
+          </label>
+          <button class="btn add">+</button>
+        </form>
+        <div class="todo__box">
+          <ul class="items">
+            <li class="item">
+              <label for="checkbox-1" class="form-control">
+                <input type="checkbox" name="checkbox" id="checkbox-1" />
+                <span> drink water </span>
+              </label>
+              <button class="btn delete">
+                <img
+                  src="images/icon-cross.svg"
+                  alt="delete"
+                  class="delete-img"
+                />
+              </button>
+            </li>
+          </ul>
+          <footer class="desktop-footer">
+            <p class="items-left">
+              <span class="items-number">5 </span>items left
+            </p>
+            <div class="filter">
+              <a href="" class="filter-all">All</a>
+              <a href="" class="filter-active">Active</a>
+              <a href="" class="filter-Completed">Completed</a>
+            </div>
+            <a href="" class="clear-items">Clear Completed</a>
+          </footer>
+        </div>
+        <footer class="mobile-footer">
+          <div class="filter">
+            <a href="" class="filter-all">All</a>
+            <a href="" class="filter-active">Active</a>
+            <a href="" class="filter-Completed">Completed</a>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
