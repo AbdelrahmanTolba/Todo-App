@@ -20,7 +20,7 @@ darkMode == "enabled" ? enableDarkMode() : disableDarkMode();
 
 modeBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  darkMode = localStorage.getItem("darkMode");git init
+  darkMode = localStorage.getItem("darkMode");
   if (darkMode !== "enabled") enableDarkMode();
   else disableDarkMode();
 });
