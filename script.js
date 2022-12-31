@@ -4,6 +4,8 @@ const addInput = document.querySelector(".add-box");
 const addBtn = document.querySelector(".add");
 const todoBox = document.querySelector(".items");
 
+let items = document.querySelector(".items-number");
+
 let darkMode = localStorage.getItem("darkMode");
 
 const enableDarkMode = () => {
@@ -25,6 +27,7 @@ modeBtn.addEventListener("click", (e) => {
   else disableDarkMode();
 });
 let numberOfItem = 1;
+items.textContent = numberOfItem;
 
 const addItem = (item) => {
   numberOfItem += 1;
@@ -41,11 +44,12 @@ const addItem = (item) => {
     />
   </button>
 </li>`;
+  items.textContent = numberOfItem;
 };
+
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
   if (!addInput.value) return;
   addItem(addInput.value);
   addInput.value = "";
-  console.log(document.querySelectorAll(".item").length);
 });
